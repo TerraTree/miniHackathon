@@ -1,19 +1,17 @@
 class Board():
-    def __init__(self):
-        grid = []
-        for i in range(1,16):
-            grid.append([])
-            for j in range(1,16):
-                grid[i-1].append("")
-        print(grid)
-        boardDetails = open("boardTiles.txt","r")
-        line = boardDetails.readline()
-        print(line)
-        for row in grid:
-            index = 0
-            for tile in row:
-                row[index]=line[index]
-                print("yes")
-                index+=1
-            boardDetails.readline()
-        print(grid)
+    def __init__(self,grid):
+        self.grid=grid
+
+    def checkAdjacent(self,position):
+        possibleMovements = []
+        grid=self.grid
+        if grid[self.position[0]][self.position[1]-1] != "-":
+            possibleMovements.append("left")
+        elif grid[self.position[0]][self.position[1]+1] != "-":
+            possibleMovements.append("right")
+        elif grid[self.position[0]-1][self.position[1]] != "-":
+            possibleMovements.append("up")
+        elif grid[self.position[0]+1][self.position[1]] != "-":
+            possibleMovements.append("down")
+        print(possibleMovements)
+        return possibleMovements
