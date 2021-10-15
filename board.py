@@ -5,13 +5,12 @@ class Board():
     def checkAdjacent(self,position):
         possibleMovements = []
         grid=self.grid
-        if grid[self.position[0]][self.position[1]-1] != "-":
+        if grid[position[0]][position[1]-1] != "-":
             possibleMovements.append("left")
-        elif grid[self.position[0]][self.position[1]+1] != "-":
+        if grid[position[0]][position[1]+1] != "-":
             possibleMovements.append("right")
-        elif grid[self.position[0]-1][self.position[1]] != "-":
+        if grid[position[0]-1][position[1]] != "-":
             possibleMovements.append("up")
-        elif grid[self.position[0]+1][self.position[1]] != "-":
+        if grid[position[0]+1][position[1]] != "-":
             possibleMovements.append("down")
-        print(possibleMovements)
         return possibleMovements
