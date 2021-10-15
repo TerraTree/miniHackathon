@@ -1,8 +1,10 @@
 class Character():
-    def __init__(self,name,knowledge,position):
+    def __init__(self,name,knowledge,position,aiControlled):
         self.name=name
         self.knowledge = knowledge
         self.position = position
+        self.aiControlled=aiControlled
+        self.cards = []
 
     def move(self, dir):
         direction = dir.lower()
@@ -18,3 +20,6 @@ class Character():
         print("Y:", self.position[0])
         print("X:", self.position[1])
 
+    def findClosestRoom(self,grid,roomDistances):
+
+        return location
